@@ -1,0 +1,99 @@
+#<NumericInput@TextInput>
+#    input_filter: 'float'
+#    multiline: False
+
+<MyLayout>
+    #ddmm: (ddmm)
+    #dmm: (dmm)
+
+    BoxLayout:
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+            rows:8
+
+            Label:
+                pos_hint: {"x":0, "top":1}
+                text: "D + d (mm): "
+
+            TextInput:
+                id: ddmm
+                text: "0"
+                pos_hint: {"x":0.4, "top":1}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.85}
+                text: "d (mm): "
+
+            TextInput:
+                id: dmm
+                text: "0"
+                pos_hint: {"x":0.4, "top":.85}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.70}
+                text: "Num. espiras: "
+
+            TextInput:
+                id: nespiras
+                text: "0"
+                pos_hint: {"x":0.4, "top":.70}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.55}
+                text: "Paso interior (mm): "
+
+            TextInput:
+                id: pasointerior
+                text: "0"
+                pos_hint: {"x":0.4, "top":.55}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.40}
+                color: 0, 0.5, 0.5, 1
+                text: "K (N/mm): "
+
+            TextInput:
+                id: knmm
+                pos_hint: {"x":0.4, "top":.4}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.40}
+                color: 0, 0.5, 0.5, 1
+                text: "K (lb/inch): "
+
+            TextInput:
+                id: klbinch
+                pos_hint: {"x":0.4, "top":.25}
+                font_size: 35
+                multiline: False
+
+            Label:
+                pos_hint: {"x":0, "top":0.25}
+                color: 0, 0.5, 0.5, 1
+                text: "MaxComp (mm): "
+
+            TextInput:
+                id: maxcompmm
+                pos_hint: {"x":0.4, "top":25}
+                font_size: 35
+                multiline: False
+
+            Button:
+                id: calcular
+                #pos_hint: {"x", "y", "top", "bottom", "left", "right"}
+                size_hint: (1, 1)
+                pos_hint: {"bottom":0}
+                text: "Calcular K"
+                on_press: root.calcular(ddmm, dmm, nespiras,pasointerior)
